@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+import post05Img from "@images/post-05.png";
+import { Picture } from "astro:assets";
+---
+
+<BaseLayout title="Imagenes">
+  <img
+    loading="eager"
+    src="/assets/images/post-05.png"
+    width="250"
+    height="250"
+  />
+
+  <h1>Quality high</h1>
+  <Image src={post05Img} width="250" height="250" alt="Post 05 Image" />
+  <h1>Quality low</h1>
+  <Image
+    src={post05Img}
+    quality="low"
+    width="250"
+    height="250"
+    alt="Post 05 Image"
+  />
+  <h1>Picture formats webp avif jpeg</h1>
+  <Picture
+    widths={[240, 540, 720, post05Img.width]}
+    sizes={`(max-width: 320px) 240px, (max-width: 540px) 540px, (max-width: 720px) 720px, ${post05Img.width}px`}
+    src={post05Img}
+    formats={["avif", "webp", "jpeg"]}
+    width="250"
+    height="250"
+    alt="Post 05 Image"
+  />
+</BaseLayout>

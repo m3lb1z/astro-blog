@@ -1,15 +1,12 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const {
-  title = "",
-  description = "",
-} = Astro.props;
+const { title = "", description = "" } = Astro.props;
 ---
 
 <html lang="es">
@@ -20,14 +17,12 @@ const {
     <title>{title}</title>
   </head>
   <body class="bg-gray-900">
-    <header>
-    </header>
+    <header></header>
 
-    <main class="mb-10 max-w-5xl m-auto px-2 py-2">
+    <main class="mb-10 max-w-5xl m-auto px-5 md:px-2 py-2">
       <slot />
     </main>
 
-    <footer>
-    </footer>
+    <footer></footer>
   </body>
 </html>
