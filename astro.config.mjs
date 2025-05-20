@@ -12,5 +12,5 @@ export default defineConfig({
   },
 
   integrations: [mdx()],
-  site: "https://example.build",
+  site: "https://682d1271b8aa9400088acf80--elvis-blog.netlify.app",
 });
