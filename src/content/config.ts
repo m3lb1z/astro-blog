@@ -15,6 +15,9 @@ const blogCollection = defineCollection({
 
       // Relation
       tags: z.array(z.string()).optional(),
+
+      // Boolean
+      isDraft: z.boolean().default(false),
     }),
 });
 
@@ -24,6 +27,11 @@ const authorCollection = defineCollection({
     z.object({
       name: z.string(),
       avatar: image(),
+      twitter: z.string().optional(),
+      linkedIn: z.string().optional(),
+      github: z.string().optional(),
+      bio: z.string().optional(),
+      subtitle: z.string().optional(),
     }),
 });
 

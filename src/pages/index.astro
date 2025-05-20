@@ -3,7 +3,10 @@ import TypeBlogPost from "@components/TypeBlogPost.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const blogPosts = await getCollection("blog");
+const blogPosts = await getCollection(
+  "blog",
+  (post) => post.data.isDraft === false,
+);
 ---
 
 <BaseLayout title="Elvis's Blog">
@@ -13,7 +16,8 @@ const blogPosts = await getCollection("blog");
       <h1 class="text-3xl font-semibold capitalize lg:text-4xl text-white">
         From the blog
       </h1>
-      <a href="/blog/1">Blog paginado</a>
+      <a class="mr-2" href="/blog/1">Blog paginado</a>
+      <a class="mr-2" href="/authors">Autores</a>
       <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
         {blogPosts.map((post) => <TypeBlogPost post={post} />)}
       </div>
